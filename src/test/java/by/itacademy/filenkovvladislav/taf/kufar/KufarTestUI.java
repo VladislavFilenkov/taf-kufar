@@ -15,7 +15,7 @@ public class KufarTestUI {
         driver = new ChromeDriver();
         page = new KufarPage(driver);
         step = new KufarStep(driver);
-        driver.manage().timeouts().implicitlyWait(12, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         step.preparatoryActions();
     }
     @Test

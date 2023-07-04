@@ -14,11 +14,12 @@ public class KufarPage {
     private WebDriver driver;
     String baseUrl = "https://www.kufar.by/";
     String buttonCookieByXpath = "//button[@class = 'styles_button__2lS9d styles_secondary__e06Fh styles_submit_button__0D660' and text() = 'Принять']";
-    String buttonPopUpById = "control__close";
     String buttonLoginByXpath = "//button[@class = 'styles_button__2lS9d styles_outline__j5ujQ' and text() = 'Войти']";
     String inputLoginById = "login";
     String inputPasswordById = "password";
     String buttonSubmitByXpath = "//button[@class = 'styles_button__2lS9d styles_default__vR5R7 styles_block__g1Ijk' and text() = 'Войти']";
+    String iframePopUpByXpath = "/html/body/div[3]/div/div[3]/div/div/iframe";
+    String buttonClosePopUpById = "control__close";
 
     public KufarPage(WebDriver driver) {
         this.driver = driver;
@@ -49,18 +50,11 @@ public class KufarPage {
     }
 
     public void closePopUp() {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-
-        WebElement iframeElement = driver.findElement(By.xpath("//iframe[@scrolling='no' and style='min-height: 100%; height: 100%; min-width: 100%; width: 1px;']"));
-
-        driver.switchTo().frame(iframeElement);
-
-        WebElement adPopupElement = driver.findElement(By.id("banner"));
-
-        if (adPopupElement.isDisplayed()) {
-            WebElement closeButton = driver.findElement(By.id("control__close"));
+        WebElement iframeElement = driver.findElement(By.xpath(iframePopUpByXpath));
+        if (iframeElement.isDisplayed()) {
+            driver.switchTo().frame(iframeElement);
+            WebElement closeButton = driver.findElement(By.id(buttonClosePopUpById));
             closeButton.click();
-        } else {
             driver.switchTo().defaultContent();
         }
     }
