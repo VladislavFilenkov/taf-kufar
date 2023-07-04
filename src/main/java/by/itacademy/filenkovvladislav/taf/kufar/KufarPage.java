@@ -1,23 +1,20 @@
 package by.itacademy.filenkovvladislav.taf.kufar;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.time.Duration;
+import java.util.List;
 
 public class KufarPage {
     private WebDriver driver;
     String baseUrl = "https://www.kufar.by/";
-    String buttonCookieByXpath = "//button[@class = 'styles_button__2lS9d styles_secondary__e06Fh styles_submit_button__0D660' and text() = 'Принять']";
-    String buttonLoginByXpath = "//button[@class = 'styles_button__2lS9d styles_outline__j5ujQ' and text() = 'Войти']";
+    String buttonCookieByXpath = "//div[@class='styles_buttons__ji_e6']/button";
+    String buttonLoginByXpath = "//div[@data-testid='login_button']/button";
     String inputLoginById = "login";
     String inputPasswordById = "password";
-    String buttonSubmitByXpath = "//button[@class = 'styles_button__2lS9d styles_default__vR5R7 styles_block__g1Ijk' and text() = 'Войти']";
+    String buttonSubmitByXpath = "//div[@data-name='login_submit']/button";
     String iframePopUpByXpath = "/html/body/div[3]/div/div[3]/div/div/iframe";
     String buttonClosePopUpById = "control__close";
 
@@ -50,12 +47,15 @@ public class KufarPage {
     }
 
     public void closePopUp() {
-        WebElement iframeElement = driver.findElement(By.xpath(iframePopUpByXpath));
-        if (iframeElement.isDisplayed()) {
-            driver.switchTo().frame(iframeElement);
-            WebElement closeButton = driver.findElement(By.id(buttonClosePopUpById));
-            closeButton.click();
-            driver.switchTo().defaultContent();
+        List<WebElement> iframeElements = driver.findElements(By.xpath(iframePopUpByXpath));
+        if (!iframeElements.isEmpty()) {
+            WebElement iframeElement = iframeElements.get(0);
+            if (iframeElement.isDisplayed()) {
+                driver.switchTo().frame(iframeElement);
+                WebElement closeButton = driver.findElement(By.id(buttonClosePopUpById));
+                closeButton.click();
+                driver.switchTo().defaultContent();
+            }
         }
     }
 }
