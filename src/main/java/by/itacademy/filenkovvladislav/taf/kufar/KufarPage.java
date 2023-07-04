@@ -49,7 +49,20 @@ public class KufarPage {
     }
 
     public void closePopUp() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
+        WebElement iframeElement = driver.findElement(By.xpath("//iframe[@scrolling='no' and style='min-height: 100%; height: 100%; min-width: 100%; width: 1px;']"));
+
+        driver.switchTo().frame(iframeElement);
+
+        WebElement adPopupElement = driver.findElement(By.id("banner"));
+
+        if (adPopupElement.isDisplayed()) {
+            WebElement closeButton = driver.findElement(By.id("control__close"));
+            closeButton.click();
+        } else {
+            driver.switchTo().defaultContent();
+        }
     }
 }
 

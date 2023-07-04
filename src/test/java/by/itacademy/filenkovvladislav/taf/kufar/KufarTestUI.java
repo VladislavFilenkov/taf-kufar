@@ -1,13 +1,12 @@
 package by.itacademy.filenkovvladislav.taf.kufar;
 
 import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.util.concurrent.TimeUnit;
-public class KufarTest {
+public class KufarTestUI {
     ChromeDriver driver;
     KufarPage page;
     KufarStep step;
