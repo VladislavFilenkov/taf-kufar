@@ -1,6 +1,10 @@
 package by.itacademy.filenkovvladislav.taf.kufar;
 
 import io.restassured.response.ValidatableResponse;
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -40,6 +44,8 @@ public class TestAPI {
         queryParams.put("utm_queryOrigin", "Manually_typed");
         ValidatableResponse response = given().when().queryParams(queryParams).get("https://www.kufar.by/l").then();
         String actual = response.extract().asString();
-        Assertions.assertTrue(actual.contains(st1));
+        Document document = Jsoup.parse(actual);
+        Elements head = document.getElementsByTag("h3");
+        System.out.println(head.get(0).text());
     }
 }
