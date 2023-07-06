@@ -1,24 +1,27 @@
-package by.itacademy.filenkovvladislav.taf.kufar;
+package by.itacademy.filenkovvladislav.taf.kufar.pages;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 import java.util.List;
 
-public class KufarPage {
+public class Page {
     private WebDriver driver;
-    String baseUrl = "https://www.kufar.by/";
-    String buttonCookieByXpath = "//div[@class='styles_buttons__ji_e6']/button";
-    String buttonLoginByXpath = "//div[@data-testid='login_button']/button";
-    String inputLoginById = "login";
-    String inputPasswordById = "password";
-    String buttonSubmitByXpath = "//div[@data-name='login_submit']/button";
-    String iframePopUpByXpath = "/html/body/div[3]/div/div[3]/div/div/iframe";
-    String buttonClosePopUpById = "control__close";
+    private String baseUrl = "https://www.kufar.by/";
+    private String buttonCookieByXpath = "//div[@class='styles_buttons__ji_e6']/button";
+    private String buttonLoginByXpath = "//div[@data-testid='login_button']/button";
+    private String inputLoginById = "login";
+    private String inputPasswordById = "password";
+    private String buttonSubmitByXpath = "//div[@data-name='login_submit']/button";
+    private String iframePopUpByXpath = "/html/body/div[3]/div/div[3]/div/div/iframe";
+    private String buttonClosePopUpById = "control__close";
+    public String alertEmptyEmailByXpath = "//div[text()='Заполните обязательное поле']";
+    public String alertIncorrectEmailByXpath = "//div[text()='Проверьте введенный email - неправильный формат']";
+    public String alertEmptyPasswordByXpath = "//div[text()='Введите пароль']";
+    public String alertNoCombinationByXpath = "//p[text()='Введен неверный пароль либо такого профиля не существует']";
 
-    public KufarPage(WebDriver driver) {
+    public Page(WebDriver driver) {
         this.driver = driver;
     }
 
@@ -44,6 +47,11 @@ public class KufarPage {
 
     public void closeCookie() {
         driver.findElement(By.xpath(buttonCookieByXpath)).click();
+    }
+
+    public String getAlertText(String locator) {
+        WebElement alertText = driver.findElement(By.xpath(locator));
+        return alertText.getText();
     }
 
     public void closePopUp() {

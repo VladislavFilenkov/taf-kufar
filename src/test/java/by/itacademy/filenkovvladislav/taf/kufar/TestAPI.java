@@ -8,7 +8,7 @@ import java.util.HashMap;
 
 import static io.restassured.RestAssured.given;
 
-public class KufarTestAPI {
+public class TestAPI {
     @Test
     public void testLoginWithCorrectEmailAndAnyPassword() {
         String body = "{\"password\":\"d23f23d23d\"," +

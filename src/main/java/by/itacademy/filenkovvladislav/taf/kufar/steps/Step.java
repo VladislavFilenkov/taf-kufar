@@ -1,18 +1,23 @@
-package by.itacademy.filenkovvladislav.taf.kufar;
+package by.itacademy.filenkovvladislav.taf.kufar.steps;
+import by.itacademy.filenkovvladislav.taf.kufar.pages.Page;
 import org.openqa.selenium.WebDriver;
 
 
-public class KufarStep {
-    KufarPage page;
+public class Step {
+    Page page;
 
-    public KufarStep(WebDriver driver) {
-        page = new KufarPage(driver);
+    public Step(WebDriver driver) {
+        page = new Page(driver);
     }
     public void preparatoryActions() {
         page.openWebSite();
         page.closeCookie();
         page.closePopUp();
         page.clickButtonLogin();
+    }
+    public void fillLoginForm(String email, String password) {
+        page.inputLogin(email);
+        page.inputPassword(password);
     }
     public void fillLoginFormAndSubmit(String email, String password) {
         page.inputLogin(email);
