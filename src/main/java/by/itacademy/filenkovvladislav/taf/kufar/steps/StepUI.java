@@ -1,13 +1,13 @@
 package by.itacademy.filenkovvladislav.taf.kufar.steps;
-import by.itacademy.filenkovvladislav.taf.kufar.pages.Page;
+import by.itacademy.filenkovvladislav.taf.kufar.pages.PageUI;
 import org.openqa.selenium.WebDriver;
 
 
-public class Step {
-    Page page;
+public class StepUI {
+    PageUI page;
 
-    public Step(WebDriver driver) {
-        page = new Page(driver);
+    public StepUI(WebDriver driver) {
+        page = new PageUI(driver);
     }
     public void preparatoryActions() {
         page.openWebSite();
