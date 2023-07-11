@@ -14,7 +14,6 @@ public class TestBase {
     protected PageUI page;
     protected StepUI step;
 
-
     @BeforeEach
     public void warmUp() {
         driver = new ChromeDriver();

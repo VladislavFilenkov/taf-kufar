@@ -10,19 +10,19 @@ public class TestUI extends TestBase {
     @Test
     public void testLoginWithEmptyEmailAndEmptyPassword() {
         page.clickButtonSubmit();
-        Assertions.assertEquals(page.getAlertText(page.alertEmptyEmailByXpath), Alerts.emptyEmail);
-        Assertions.assertEquals(page.getAlertText(page.alertEmptyPasswordByXpath), Alerts.emptyPassword);
+        Assertions.assertEquals(Alerts.emptyEmail, page.getAlertText(page.alertEmptyEmailByXpath));
+        Assertions.assertEquals(Alerts.emptyPassword, page.getAlertText(page.alertEmptyPasswordByXpath));
     }
 
     @Test
     public void testLoginWithIncorrectEmailAndAnyPassword() {
         step.fillLoginForm(Util.incorrectEmail(), Util.anyPassword());
-        Assertions.assertEquals(page.getAlertText(page.alertIncorrectEmailByXpath), Alerts.incorrectEmail);
+        Assertions.assertEquals(Alerts.incorrectEmail, page.getAlertText(page.alertIncorrectEmailByXpath));
     }
 
     @Test
     public void testLoginWithCorrectEmailAndAnyPassword() {
         step.fillLoginFormAndSubmit(Util.correctEmail(), Util.anyPassword());
-        Assertions.assertEquals(page.getAlertText(page.alertNoCombinationByXpath), Alerts.noCombination);
+        Assertions.assertEquals(Alerts.noCombination, page.getAlertText(page.alertNoCombinationByXpath));
     }
 }
