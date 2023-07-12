@@ -4,7 +4,7 @@ import io.restassured.path.json.JsonPath;
 import io.restassured.response.ValidatableResponse;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
-import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
 
 import java.util.HashMap;
 
@@ -14,8 +14,8 @@ import static io.restassured.RestAssured.given;
 public class PageAPI {
     public String signInUrl = "https://www.kufar.by/l/api/login/v2/auth/signin";
     public String homeUrl = "https://www.kufar.by/l";
-    public String searchResult = "кроссовки Nike Air Force 1 ";
-    public String searchSelector = "img[data-src='https://rms.kufar.by/v1/list_thumbs_2x/adim1/731c91db-055d-4417-804a-8638e29abb3b.jpg']";
+    public String searchResult = "Кроссовки адидас adidas originals оригинал";
+    public String searchSelector = "h3.styles_title__F3uIe:contains(Кроссовки адидас adidas originals оригинал)";
 
     public String loginFormBody(String email, String password) {
         return "{\"password\":\"" + password + "\", " +
@@ -56,7 +56,7 @@ public class PageAPI {
     public String getSearchText(ValidatableResponse response) {
         String htmlResponse = response.extract().asString();
         Document document = Jsoup.parse(htmlResponse);
-        Element imgElement = document.selectFirst(searchSelector);
-        return imgElement.attr("alt");
+        Elements element = document.select(searchSelector);
+        return element.text();
     }
 }
