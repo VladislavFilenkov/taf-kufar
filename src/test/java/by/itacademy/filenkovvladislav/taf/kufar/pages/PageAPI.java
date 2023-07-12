@@ -14,8 +14,8 @@ import static io.restassured.RestAssured.given;
 public class PageAPI {
     public String signInUrl = "https://www.kufar.by/l/api/login/v2/auth/signin";
     public String homeUrl = "https://www.kufar.by/l";
-    public String searchResult = "Оригинальные кроссовки Adidas Ultra 4d";
-    public String searchSelector = "img[data-src='https://rms.kufar.by/v1/list_thumbs_2x/adim1/f2e24245-e1a1-4983-830d-6cc001430393.jpg']";
+    public String searchResult = "кроссовки Nike Air Force 1 ";
+    public String searchSelector = "img[data-src='https://rms.kufar.by/v1/list_thumbs_2x/adim1/731c91db-055d-4417-804a-8638e29abb3b.jpg']";
 
     public String loginFormBody(String email, String password) {
         return "{\"password\":\"" + password + "\", " +
