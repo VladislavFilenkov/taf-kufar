@@ -1,4 +1,4 @@
-package by.itacademy.filenkovvladislav.taf.kufar;
+package by.itacademy.filenkovvladislav.taf.kufar.ui;
 
 import by.itacademy.filenkovvladislav.taf.kufar.pages.PageUI;
 import by.itacademy.filenkovvladislav.taf.kufar.steps.StepUI;

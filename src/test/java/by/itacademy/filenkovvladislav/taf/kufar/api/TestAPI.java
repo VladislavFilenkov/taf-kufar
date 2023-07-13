@@ -1,4 +1,4 @@
-package by.itacademy.filenkovvladislav.taf.kufar;
+package by.itacademy.filenkovvladislav.taf.kufar.api;
 
 import by.itacademy.filenkovvladislav.taf.kufar.alerts.Alerts;
 import by.itacademy.filenkovvladislav.taf.kufar.pages.PageAPI;
