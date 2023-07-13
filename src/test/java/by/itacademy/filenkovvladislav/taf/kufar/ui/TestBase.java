@@ -17,9 +17,9 @@ public class TestBase {
     @BeforeEach
     public void warmUp() {
         driver = new ChromeDriver();
+        driver.manage().timeouts().implicitlyWait(4, TimeUnit.SECONDS);
         page = new PageUI(driver);
         step = new StepUI(driver);
-        driver.manage().timeouts().implicitlyWait(4, TimeUnit.SECONDS);
         step.preparatoryActions();
     }
 
