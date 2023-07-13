@@ -1,7 +1,6 @@
 package by.itacademy.filenkovvladislav.taf.kufar.ui;
 
 import by.itacademy.filenkovvladislav.taf.kufar.alerts.Alerts;
-import by.itacademy.filenkovvladislav.taf.kufar.ui.TestBase;
 import by.itacademy.filenkovvladislav.taf.kufar.utils.Util;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;

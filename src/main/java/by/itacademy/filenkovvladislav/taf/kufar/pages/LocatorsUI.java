@@ -3,7 +3,7 @@ package by.itacademy.filenkovvladislav.taf.kufar.pages;
 public class LocatorsUI {
 
     protected String baseUrl = "https://www.kufar.by/";
-    protected String buttonCookieByXpath = "//div[@class='styles_buttons__ji_e6']/button";
+    protected String buttonCookieByXpath = "//div[@class='styles_buttons__fA69m']/button";
     protected String buttonLoginByXpath = "//div[@data-testid='login_button']/button";
     protected String inputLoginById = "login";
     protected String inputPasswordById = "password";
