@@ -1,9 +1,10 @@
 package by.itacademy.filenkovvladislav.taf.kufar.pages;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.NoSuchElementException;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 
 public class PageUI extends LocatorsUI {
     private final WebDriver driver;
@@ -37,18 +38,21 @@ public class PageUI extends LocatorsUI {
     }
 
     public String getAlertText(String locator) {
-        WebElement alertText = driver.findElement(By.xpath(locator));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebElement alertText = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(locator)));
         return alertText.getText();
     }
 
     public void closePopUp() {
         try {
-            WebElement iframeElement = driver.findElement(By.xpath(iframePopUpByXpath));
+            WebDriverWait frameWait = new WebDriverWait(driver, Duration.ofSeconds(1));
+            WebElement iframeElement = frameWait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(iframePopUpByXpath)));
             driver.switchTo().frame(iframeElement);
-            WebElement closeButton = driver.findElement(By.id(buttonClosePopUpById));
+            WebDriverWait buttonWait = new WebDriverWait(driver, Duration.ofSeconds(5));
+            WebElement closeButton = buttonWait.until(ExpectedConditions.visibilityOfElementLocated(By.id(buttonClosePopUpById)));
             closeButton.click();
             driver.switchTo().defaultContent();
-        } catch (NoSuchElementException e) {
+        } catch (TimeoutException e) {
         }
     }
 }

@@ -8,11 +8,10 @@ public class LocatorsUI {
     protected String inputLoginById = "login";
     protected String inputPasswordById = "password";
     protected String buttonSubmitByXpath = "//div[@data-name='login_submit']/button";
-    protected String iframePopUpByXpath = "/html/body/div[3]/div/div[3]/div/div/iframe";
+    protected String iframePopUpByXpath = "//div[contains(@style, 'z-index: 999999;')]//iframe";
     protected String buttonClosePopUpById = "control__close";
-    protected String closePopUpByXpath = "//div[@class='lb61e5a9a']";
     public String alertEmptyEmailByXpath = "//div[text()='Заполните обязательное поле']";
     public String alertIncorrectEmailByXpath = "//div[text()='Проверьте введенный email - неправильный формат']";
     public String alertEmptyPasswordByXpath = "//div[text()='Введите пароль']";
-    public String alertNoCombinationByXpath = "//p[text()='Введен неверный пароль либо такого профиля не существует']";
+    public String alertNoCombinationByXpath = "//form[@data-name='form_login']//p";
 }
