@@ -4,6 +4,7 @@ import io.restassured.path.json.JsonPath;
 import io.restassured.response.ValidatableResponse;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 import java.util.HashMap;
@@ -14,8 +15,9 @@ import static io.restassured.RestAssured.given;
 public class PageAPI {
     public String signInUrl = "https://www.kufar.by/l/api/login/v2/auth/signin";
     public String homeUrl = "https://www.kufar.by/l";
-    public String searchResult = "Adidas кофта ";
-    public String searchSelector = "h3.styles_title__F3uIe:contains(Adidas кофта )";
+    public String searchResult = "Adidas кроссовки оригинальные";
+    int idSearchResult = 201863021;
+    String searchSelector = "a[href*=\"item/" + idSearchResult + "\"] h3";
 
 
     public String loginFormBody(String email, String password) {
@@ -57,7 +59,8 @@ public class PageAPI {
     public String getSearchText(ValidatableResponse response) {
         String htmlResponse = response.extract().asString();
         Document document = Jsoup.parse(htmlResponse);
-        Elements element = document.select(searchSelector);
+        Elements elements = document.select(searchSelector);
+        Element element = elements.get(0);
         return element.text();
     }
 }
