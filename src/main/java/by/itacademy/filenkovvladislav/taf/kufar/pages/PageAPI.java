@@ -13,11 +13,10 @@ import static io.restassured.RestAssured.given;
 
 
 public class PageAPI {
-    public String signInUrl = "https://www.kufar.by/l/api/login/v2/auth/signin";
-    public String homeUrl = "https://www.kufar.by/l";
-    public String searchResult = "Adidas кроссовки оригинальные";
-    int idSearchResult = 201863021;
-    String searchSelector = "a[href*=\"item/" + idSearchResult + "\"] h3";
+    private String signInUrl = "https://www.kufar.by/l/api/login/v2/auth/signin";
+    private String homeUrl = "https://www.kufar.by/l";
+    public String searchResult = "Adidas SUPERNOVA + M";
+    private String searchSelector = "h3.styles_title__F3uIe:contains(Adidas SUPERNOVA + M)";
 
 
     public String loginFormBody(String email, String password) {
