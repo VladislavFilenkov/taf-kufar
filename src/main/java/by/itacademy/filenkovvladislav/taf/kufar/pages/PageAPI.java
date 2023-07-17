@@ -15,8 +15,8 @@ import static io.restassured.RestAssured.given;
 public class PageAPI {
     private String signInUrl = "https://www.kufar.by/l/api/login/v2/auth/signin";
     private String homeUrl = "https://www.kufar.by/l";
-    public String searchResult = "Adidas SUPERNOVA + M";
-    private String searchSelector = "h3.styles_title__F3uIe:contains(Adidas SUPERNOVA + M)";
+    public String searchResult = "Кроссовки Adidas Lite Racer";
+    private String searchSelector = "h3.styles_title__F3uIe:contains(Кроссовки Adidas Lite Racer)";
 
 
     public String loginFormBody(String email, String password) {

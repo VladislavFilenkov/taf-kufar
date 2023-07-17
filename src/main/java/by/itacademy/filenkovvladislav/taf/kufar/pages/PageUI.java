@@ -10,10 +10,10 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 
 public class PageUI extends LocatorsUI {
-    private final WebDriver driver;
+    private WebDriver driver;
 
-    public PageUI(WebDriver driver) {
-        this.driver = driver;
+    public PageUI() {
+        this.driver = DriverSingleton.getDriver();
     }
 
     public void openWebSite() {
@@ -21,7 +21,9 @@ public class PageUI extends LocatorsUI {
     }
 
     public void clickButtonLogin() {
-        driver.findElement(By.xpath(buttonLoginByXpath)).click();
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebElement buttonLogin = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(buttonLoginByXpath)));
+        buttonLogin.click();
     }
 
     public void inputLogin(String email) {
