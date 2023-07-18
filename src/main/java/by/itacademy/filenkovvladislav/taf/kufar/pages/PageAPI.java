@@ -62,4 +62,7 @@ public class PageAPI {
         Element element = elements.get(0);
         return element.text();
     }
+    public int getStatusCode(ValidatableResponse response){
+        return response.extract().statusCode();
+    }
 }

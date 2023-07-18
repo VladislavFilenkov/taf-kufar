@@ -13,18 +13,21 @@ public class TestAPI {
     @Test
     public void testLoginWithCorrectEmailAndAnyPassword() {
         ValidatableResponse response = page.performLogin(User.CORRECT_EMAIL, User.PASSWORD);
+        Assertions.assertEquals(401, page.getStatusCode(response));
         Assertions.assertEquals(Alerts.noCombination, page.getAlertText(response));
     }
 
     @Test
     public void testLoginWithEmptyEmailAndEmptyPassword() {
         ValidatableResponse response = page.performLogin("", "");
+        Assertions.assertEquals(400, page.getStatusCode(response));
         Assertions.assertEquals(Alerts.emptyOrIncorrectLoginForm, page.getAlertText(response));
     }
 
     @Test
     public void testSearchAdidas() {
         ValidatableResponse response = page.searchQuery("adidas");
+        Assertions.assertEquals(200, page.getStatusCode(response));
         Assertions.assertEquals(page.searchResult, page.getSearchText(response));
     }
 }
