@@ -1,6 +1,7 @@
 package by.itacademy.filenkovvladislav.taf.kufar.api;
 
 import by.itacademy.filenkovvladislav.taf.kufar.alerts.Alerts;
+import by.itacademy.filenkovvladislav.taf.kufar.domain.User;
 import by.itacademy.filenkovvladislav.taf.kufar.pages.PageAPI;
 import io.restassured.response.ValidatableResponse;
 import org.junit.jupiter.api.Assertions;
@@ -11,7 +12,7 @@ public class TestAPI {
 
     @Test
     public void testLoginWithCorrectEmailAndAnyPassword() {
-        ValidatableResponse response = page.performLogin("test2342@test.com", "f22f2f");
+        ValidatableResponse response = page.performLogin(User.CORRECT_EMAIL, User.PASSWORD);
         Assertions.assertEquals(Alerts.noCombination, page.getAlertText(response));
     }
 
@@ -25,6 +26,5 @@ public class TestAPI {
     public void testSearchAdidas() {
         ValidatableResponse response = page.searchQuery("adidas");
         Assertions.assertEquals(page.searchResult, page.getSearchText(response));
-
     }
 }

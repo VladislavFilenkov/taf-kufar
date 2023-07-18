@@ -1,6 +1,6 @@
 package by.itacademy.filenkovvladislav.taf.kufar.ui;
 
-import by.itacademy.filenkovvladislav.taf.kufar.pages.DriverSingleton;
+import by.itacademy.filenkovvladislav.taf.kufar.driver.DriverSingleton;
 import by.itacademy.filenkovvladislav.taf.kufar.pages.PageUI;
 import by.itacademy.filenkovvladislav.taf.kufar.steps.StepUI;
 import org.junit.jupiter.api.AfterEach;

@@ -1,5 +1,6 @@
 package by.itacademy.filenkovvladislav.taf.kufar.pages;
 
+import by.itacademy.filenkovvladislav.taf.kufar.driver.DriverSingleton;
 import org.openqa.selenium.By;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
@@ -10,7 +11,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 
 public class PageUI extends LocatorsUI {
-    private WebDriver driver;
+    private final WebDriver driver;
 
     public PageUI() {
         this.driver = DriverSingleton.getDriver();

@@ -1,4 +1,4 @@
-package by.itacademy.filenkovvladislav.taf.kufar.pages;
+package by.itacademy.filenkovvladislav.taf.kufar.driver;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
