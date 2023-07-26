@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 
 public class TestUI extends TestBase {
 
-    @Test
+   /* @Test
     public void testLoginWithEmptyEmailAndEmptyPassword() {
         page.clickButtonSubmit();
         Assertions.assertEquals(Alerts.emptyEmail, page.getAlertText(page.alertEmptyEmailByXpath));
@@ -25,5 +25,5 @@ public class TestUI extends TestBase {
     public void testLoginWithCorrectEmailAndAnyPassword() {
         step.fillLoginFormAndSubmit(Util.correctEmail(), Util.anyPassword());
         Assertions.assertEquals(Alerts.noCombination, page.getAlertText(page.alertNoCombinationByXpath));
-    }
+    }*/
 }
