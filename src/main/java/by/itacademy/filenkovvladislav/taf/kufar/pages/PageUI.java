@@ -1,10 +1,7 @@
 package by.itacademy.filenkovvladislav.taf.kufar.pages;
 
 import by.itacademy.filenkovvladislav.taf.kufar.driver.DriverSingleton;
-import org.openqa.selenium.By;
-import org.openqa.selenium.TimeoutException;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -41,6 +38,11 @@ public class PageUI extends LocatorsUI {
 
     public void closeCookie() {
         driver.findElement(By.xpath(buttonCookieByXpath)).click();
+        try {
+            driver.findElement(By.xpath(buttonCookie2ByXpath)).click();
+        } catch (NoSuchElementException e) {
+        }
+
     }
 
     public String getAlertText(String locator) {
