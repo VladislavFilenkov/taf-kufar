@@ -14,5 +14,5 @@ public class LocatorsUI {
     public String alertEmptyEmailByXpath = "//div[text()='Заполните обязательное поле']";
     public String alertIncorrectEmailByXpath = "//div[text()='Проверьте введенный email - неправильный формат']";
     public String alertEmptyPasswordByXpath = "//div[text()='Введите пароль']";
-    public String alertNoCombinationByXpath = "//div[@class='styles_with_sms_block__6_xkj']/div";
+    public String alertNoCombinationByXpath = "//div[@class='styles_with_sms_block__6_xkj']/div/p";
 }
