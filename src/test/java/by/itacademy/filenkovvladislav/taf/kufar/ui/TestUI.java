@@ -24,7 +24,7 @@ public class TestUI extends TestBase {
     @Test
     public void testLoginWithCorrectEmailAndAnyPassword() {
         step.fillLoginFormAndSubmit(Util.correctEmail(), Util.anyPassword());
-        page.clickButtonSubmit();
+        page.clickLogin();
         Assertions.assertEquals(Alerts.noCombination, page.getAlertText(page.alertNoCombinationByXpath));
     }
 }
