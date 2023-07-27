@@ -19,9 +19,10 @@ public class PageUI extends LocatorsUI {
     }
 
     public void clickButtonLogin() {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        try {WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         WebElement buttonLogin = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(buttonLoginByXpath)));
-        buttonLogin.click();
+        buttonLogin.click();}catch (TimeoutException e) {
+        }
     }
 
     public void inputLogin(String email) {
