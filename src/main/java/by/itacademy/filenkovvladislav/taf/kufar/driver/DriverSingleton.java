@@ -12,8 +12,9 @@ public class DriverSingleton {
     public static WebDriver getDriver() {
         if (driver == null) {
             ChromeOptions options = new ChromeOptions();
-            options.addArguments("--headless", "--disable-gpu", "--window-size=1920x1080");
-            driver = new ChromeDriver(options);
+           /* options.addArguments("--headless", "--disable-gpu", "--window-size=1920x1080");*/
+            driver = new ChromeDriver();
+            driver.manage().window().maximize();
             driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
         }
         return driver;
