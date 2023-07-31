@@ -15,7 +15,7 @@ import static io.restassured.RestAssured.given;
 public class PageAPI {
     private String signInUrl = "https://www.kufar.by/l/api/login/v2/auth/signin";
     private String homeUrl = "https://www.kufar.by/l";
-    public String searchResult = "Ветровка Adidas";
+    public String searchResult = "Adidas Samba (Доставка по РБ)";
     private String searchSelector = "h3.styles_title__F3uIe:contains(" + searchResult + ")";
 
 
