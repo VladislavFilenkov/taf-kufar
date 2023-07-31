@@ -25,8 +25,8 @@ public class TestAPI {
     }
 
     @Test
-    public void testSearchAdidas() {
-        ValidatableResponse response = page.searchQuery("adidas");
+    public void testSearch() {
+        ValidatableResponse response = page.searchQuery("acronim");
         Assertions.assertEquals(200, page.getStatusCode(response));
         Assertions.assertEquals(page.searchResult, page.getSearchText(response));
     }
