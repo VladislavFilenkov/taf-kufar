@@ -50,7 +50,7 @@ public class PageUI extends LocatorsUI {
 
     public String getAlertText(String locator) {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        WebElement alertText = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(locator)));
+        WebElement alertText = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(locator)));
         return alertText.getText();
     }
 

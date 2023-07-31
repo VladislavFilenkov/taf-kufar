@@ -9,7 +9,7 @@ public class LocatorsUI {
     protected String inputLoginById = "login";
     protected String inputPasswordById = "password";
     protected String buttonSubmitByXpath = "//div[@data-name='login_submit']/button";
-    protected String iframePopUpByXpath = "//div[contains(@style, 'z-index: 999999;')]//iframe";
+    protected String iframePopUpByXpath = "/html/body/div[*]/div/div[*]/div/div/iframe";
     protected String buttonClosePopUpById = "control__close";
     public String alertEmptyEmailByXpath = "//div[text()='Заполните обязательное поле']";
     public String alertIncorrectEmailByXpath = "//div[text()='Проверьте введенный email - неправильный формат']";
