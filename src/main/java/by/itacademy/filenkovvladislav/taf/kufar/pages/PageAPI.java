@@ -30,9 +30,9 @@ public class PageAPI {
         return queryParams;
     }
 
-    public HashMap<String, String> queryParamsSearch(String search) {
+    public HashMap<String, String> queryParamsSearch(String searchWord) {
         HashMap<String, String> queryParams = new HashMap<>();
-        queryParams.put("query", search);
+        queryParams.put("query", searchWord);
         queryParams.put("rgn", "all");
         queryParams.put("utm_queryOrigin", "Manually_typed");
         return queryParams;

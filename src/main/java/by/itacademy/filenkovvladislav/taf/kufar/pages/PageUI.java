@@ -28,10 +28,6 @@ public class PageUI extends LocatorsUI {
         driver.findElement(By.id(inputLoginById)).sendKeys(email);
     }
 
-    public void clickLogin() {
-        driver.findElement(By.id(inputLoginById)).click();
-    }
-
     public void inputPassword(String password) {
         driver.findElement(By.id(inputPasswordById)).sendKeys(password);
     }
